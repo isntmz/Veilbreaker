@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://el5vaj8hos7t"]
+
+[ext_resource type="Script" path="res://Scenes/Abandoned City/abandoned_city.gd" id="1_u16b7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yw5v2"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_u16b7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer1"]
+
+[node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer2"]
+
+[node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer3"]
+
+[node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer4"]
+
+[node name="Layer5" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 989)
+shape = SubResource("WorldBoundaryShape2D_yw5v2")

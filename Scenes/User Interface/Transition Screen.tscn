@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://butp2jh7e3wti"]
+
+[ext_resource type="Script" path="res://User Interface/Transition/transition_screen.gd" id="1_y12o0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_y12o0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

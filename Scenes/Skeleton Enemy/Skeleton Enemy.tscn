@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ysy8qempf7j"]
+
+[ext_resource type="Script" path="res://Enemy/Scripts/skeleton_enemy.gd" id="1_q1tga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cu1v3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmhxu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_447gd"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_q1tga")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_cu1v3")
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mmhxu")
+
+[node name="SkeletonEnemy" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_447gd")
+
+[node name="DirectionTimer" type="Timer" parent="SkeletonEnemy"]
+
+[node name="AttackDelayTimer" type="Timer" parent="SkeletonEnemy"]
+
+[node name="InvincibilityFrameTimer" type="Timer" parent="SkeletonEnemy"]

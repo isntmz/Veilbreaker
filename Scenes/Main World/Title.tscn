@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhlflug5f3moy"]
+
+[node name="Title" type="RichTextLabel"]
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[img]res://User Interface/Title/Veilbreaker.png[/img]"
+
+[node name="TitleParticles" type="CPUParticles2D" parent="."]
