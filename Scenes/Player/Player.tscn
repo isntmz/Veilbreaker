@@ -226,7 +226,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gvpr8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attacking",
 "speed": 8.0
 }, {
@@ -317,7 +317,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jumping",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -367,9 +367,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xjprv")
 }],
-"loop": true,
+"loop": false,
 "name": &"Sliding",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -399,9 +399,11 @@ animations = [{
 script = ExtResource("1_roomb")
 
 [node name="Player" type="AnimatedSprite2D" parent="." groups=["Player"]]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
 sprite_frames = SubResource("SpriteFrames_ogtey")
-animation = &"Idle"
-frame_progress = 0.371347
+animation = &"Attacking"
 
 [node name="SlideTimer" type="Timer" parent="Player" groups=["Player"]]
 wait_time = 3.0
@@ -420,7 +422,11 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_5adse")
 
 [node name="PointOfView" type="Camera2D" parent="." groups=["Player"]]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
 zoom = Vector2(3, 3)
+process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 2304

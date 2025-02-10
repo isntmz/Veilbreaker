@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://gvt6g4sogkx5"]
+
+[ext_resource type="Script" path="res://Scenes/User Interface/abandoned_city_button.gd" id="1_0if4x"]
+
+[sub_resource type="Curve" id="Curve_tkcfo"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, -500), 0.0, 0.0, 0, 0, Vector2(1, 500), 1400.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_woqt8"]
+offsets = PackedFloat32Array(0, 0.511278, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.4, 0, 0, 1, 0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 196.0
+offset_bottom = 21.0
+bbcode_enabled = true
+text = "[img]res://User Interface/Teleports/Abandoned City.png[/img]"
+script = ExtResource("1_0if4x")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(108, 22)
+amount = 128
+lifetime = 3.0
+randomness = 1.0
+fixed_fps = 240
+emission_shape = 3
+emission_rect_extents = Vector2(110, 1)
+gravity = Vector2(0, -980)
+orbit_velocity_curve = SubResource("Curve_tkcfo")
+linear_accel_max = 1.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_woqt8")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

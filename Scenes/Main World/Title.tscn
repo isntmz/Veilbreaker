@@ -1,9 +1,40 @@
-[gd_scene format=3 uid="uid://bhlflug5f3moy"]
+[gd_scene load_steps=4 format=3 uid="uid://bhlflug5f3moy"]
+
+[ext_resource type="Script" path="res://Scenes/Main World/title.gd" id="1_bm88d"]
+
+[sub_resource type="Curve" id="Curve_wjr7l"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, -500), 0.0, 0.0, 0, 0, Vector2(1, 500), 1400.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_suwoy"]
+offsets = PackedFloat32Array(0, 0.0075188, 0.969925, 0.992481, 1)
+colors = PackedColorArray(0.909774, 0.909774, 0.909774, 1, 1, 1, 1, 1, 0.12549, 0.12549, 1, 1, 0, 0, 0, 1, 0.133532, 3.36915e-06, 0.613166, 1)
 
 [node name="Title" type="RichTextLabel"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 339.0
+offset_bottom = 81.0
 bbcode_enabled = true
 text = "[img]res://User Interface/Title/Veilbreaker.png[/img]"
+script = ExtResource("1_bm88d")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="TitleParticles" type="CPUParticles2D" parent="."]
+position = Vector2(63, 82)
+amount = 16
+lifetime = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(400, 16)
+gravity = Vector2(0, -980)
+orbit_velocity_curve = SubResource("Curve_wjr7l")
+linear_accel_max = 1.0
+color = Color(0, 1, 1, 1)
+color_ramp = SubResource("Gradient_suwoy")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
