@@ -176,6 +176,10 @@ offset_right = 734.0
 offset_bottom = 247.0
 
 [node name="Abandoned City" parent="." instance=ExtResource("10_b7pex")]
+offset_left = 20.0
+offset_top = 340.0
+offset_right = 216.0
+offset_bottom = 361.0
 
 [node name="Desert" parent="." instance=ExtResource("11_wt2l3")]
 offset_top = 22.0

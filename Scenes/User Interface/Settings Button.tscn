@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr3l6mksnknmu"]
+
+[ext_resource type="Script" path="res://Scenes/User Interface/settings_button.gd" id="1_h0a1n"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 65.0
+offset_bottom = 27.0
+text = "Settings"
+script = ExtResource("1_h0a1n")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 25.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

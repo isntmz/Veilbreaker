@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name playervar
 ###
 #Link Variables
 @onready var player: AnimatedSprite2D = $Player
