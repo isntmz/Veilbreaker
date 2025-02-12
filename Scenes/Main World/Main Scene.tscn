@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d1bjb23rpjrbu"]
+[gd_scene load_steps=17 format=4 uid="uid://d1bjb23rpjrbu"]
 
 [ext_resource type="Script" path="res://Scenes/Main World/main_scene.gd" id="1_eiwy3"]
 [ext_resource type="Texture2D" uid="uid://b8wkgooith6ei" path="res://World/Background/Main Scene/1.png" id="2_pyfbv"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://be4ky4aa2j08c" path="res://World/Background/Main Scene/4.png" id="5_a5msa"]
 [ext_resource type="Texture2D" uid="uid://b05vm0bfck1oh" path="res://World/Background/Main Scene/5.png" id="6_leiwv"]
 [ext_resource type="PackedScene" uid="uid://yb14jeekov30" path="res://Scenes/Player/Player.tscn" id="7_u8y6s"]
-[ext_resource type="Texture2D" uid="uid://bytebl5r45wq0" path="res://World/Platforms/PlatformTiles.png" id="8_8n7f6"]
+[ext_resource type="Texture2D" uid="uid://bytebl5r45wq0" path="res://World/Objects/PlatformTiles.png" id="8_8n7f6"]
 [ext_resource type="PackedScene" uid="uid://bhlflug5f3moy" path="res://Scenes/Main World/Title.tscn" id="9_i8koj"]
 [ext_resource type="PackedScene" uid="uid://gvt6g4sogkx5" path="res://Scenes/User Interface/Abandoned City Button.tscn" id="10_b7pex"]
 [ext_resource type="PackedScene" uid="uid://euf5pmr06x50" path="res://Scenes/User Interface/Desert Button.tscn" id="11_wt2l3"]
+[ext_resource type="PackedScene" uid="uid://y7jnwlhma3r5" path="res://Scenes/User Interface/Tutorial Button.tscn" id="12_qeu3e"]
+[ext_resource type="PackedScene" uid="uid://bvjx77ovn3bol" path="res://Tutorial Portal.tscn" id="13_p3yd1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s0yxf"]
 distance = -21.0
@@ -184,3 +186,12 @@ offset_bottom = 361.0
 [node name="Desert" parent="." instance=ExtResource("11_wt2l3")]
 offset_top = 22.0
 offset_bottom = 44.0
+
+[node name="RichTextLabel" parent="." instance=ExtResource("12_qeu3e")]
+offset_left = 533.0
+offset_top = 298.0
+offset_right = 596.0
+offset_bottom = 327.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("13_p3yd1")]
+position = Vector2(457, 1279)

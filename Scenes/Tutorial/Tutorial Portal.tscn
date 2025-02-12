@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvjx77ovn3bol"]
+
+[ext_resource type="Script" path="res://tutorial_portal.gd" id="1_54uy8"]
+[ext_resource type="Texture2D" uid="uid://cbyt7acn8aupl" path="res://World/Objects/Portal.png" id="2_sjake"]
+[ext_resource type="Texture2D" uid="uid://ef0ltn00o8ra" path="res://User Interface/Teleports/NotDoneTutorial.png" id="3_5ylqi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdgvd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrjoi"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0p8a"]
+atlas = ExtResource("2_sjake")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edvl4"]
+atlas = ExtResource("2_sjake")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r58in"]
+atlas = ExtResource("2_sjake")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm0f0"]
+atlas = ExtResource("2_sjake")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r61e7"]
+atlas = ExtResource("2_sjake")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqk8a"]
+atlas = ExtResource("2_sjake")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofeev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0p8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edvl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r58in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm0f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r61e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqk8a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4lhx"]
+radius = 7.0
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["Tutorial Portal"]]
+physics_material_override = SubResource("PhysicsMaterial_xdgvd")
+script = ExtResource("1_54uy8")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Tutorial Portal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Tutorial Portal"]]
+shape = SubResource("CapsuleShape2D_xrjoi")
+
+[node name="Portal" type="AnimatedSprite2D" parent="." groups=["Tutorial Portal"]]
+sprite_frames = SubResource("SpriteFrames_ofeev")
+autoplay = "default"
+frame_progress = 0.569574
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Tutorial Portal"]]
+shape = SubResource("CapsuleShape2D_a4lhx")
+disabled = true
+
+[node name="UnfinishedTutorial" type="Sprite2D" parent="." groups=["Tutorial Portal"]]
+visible = false
+position = Vector2(0, -46)
+texture = ExtResource("3_5ylqi")
+
+[node name="FinishedTutorial" type="Sprite2D" parent="." groups=["Tutorial Portal"]]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

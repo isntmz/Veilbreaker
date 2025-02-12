@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byxrnw3hyhswb" path="res://World/Background/Main Scene/3.png" id="3_jaajy"]
 [ext_resource type="Texture2D" uid="uid://be4ky4aa2j08c" path="res://World/Background/Main Scene/4.png" id="4_0qm23"]
 [ext_resource type="Texture2D" uid="uid://b05vm0bfck1oh" path="res://World/Background/Main Scene/5.png" id="5_ky13w"]
-[ext_resource type="Texture2D" uid="uid://bytebl5r45wq0" path="res://World/Platforms/PlatformTiles.png" id="6_eemn7"]
+[ext_resource type="Texture2D" uid="uid://bytebl5r45wq0" path="res://World/Objects/PlatformTiles.png" id="6_eemn7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kso37"]
 

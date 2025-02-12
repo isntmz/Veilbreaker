@@ -396,6 +396,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnjps"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+top_level = true
 script = ExtResource("1_roomb")
 
 [node name="Player" type="AnimatedSprite2D" parent="." groups=["Player"]]

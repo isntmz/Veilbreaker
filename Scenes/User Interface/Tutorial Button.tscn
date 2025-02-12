@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://y7jnwlhma3r5"]
+[gd_scene load_steps=4 format=3 uid="uid://y7jnwlhma3r5"]
 
 [ext_resource type="Script" path="res://Scenes/User Interface/tutorial_button.gd" id="1_sv8qb"]
+
+[sub_resource type="Theme" id="Theme_vhv33"]
 
 [sub_resource type="Curve" id="Curve_rfhg8"]
 min_value = -360.0
@@ -11,6 +13,7 @@ point_count = 2
 [node name="RichTextLabel" type="RichTextLabel"]
 offset_right = 63.0
 offset_bottom = 29.0
+theme = SubResource("Theme_vhv33")
 text = "Tutorial"
 script = ExtResource("1_sv8qb")
 
@@ -30,4 +33,4 @@ angular_velocity_max = 1.0
 angular_velocity_curve = SubResource("Curve_rfhg8")
 color = Color(1, 0, 1, 0.741176)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
