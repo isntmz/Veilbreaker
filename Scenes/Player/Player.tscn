@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://yb14jeekov30"]
+[gd_scene load_steps=57 format=3 uid="uid://yb14jeekov30"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_roomb"]
 [ext_resource type="Texture2D" uid="uid://1x0xaysieg5w" path="res://Player/Sprites/AnimationSheet_Character.png" id="2_bgtm8"]
+[ext_resource type="PackedScene" uid="uid://7qdy0cmbaxjm" path="res://Scenes/Player/Health Bar.tscn" id="3_uhfnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bx76u"]
 atlas = ExtResource("2_bgtm8")
@@ -433,7 +434,6 @@ limit_top = 0
 limit_right = 2304
 limit_bottom = 1296
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
 [node name="AuraParticles" type="CPUParticles2D" parent="." groups=["Player"]]
@@ -458,5 +458,13 @@ offset_right = 77.0
 offset_bottom = 5.0
 bbcode_enabled = true
 text = "[img]res://Player/Attributes/Can't Use Ability.png[/img]"
+
+[node name="HealthBar" parent="." instance=ExtResource("3_uhfnv")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_top = -324.0
+offset_right = -244.0
+offset_bottom = -308.0
 
 [connection signal="timeout" from="Player/SlideTimer" to="." method="_on_slide_timer_timeout"]

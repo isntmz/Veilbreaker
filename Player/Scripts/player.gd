@@ -11,6 +11,7 @@ class_name playervar
 @onready var cooldowntimer: Timer = $Player/CooldownTimer
 @onready var invisibilitytimer: Timer = $Player/InvisibilityTimer
 @onready var iframetimer: Timer = $Player/InvincibilityFrameTimer
+@onready var healthbar: ProgressBar = $HealthBar
 #Attributes
 @export var Speed: int = 50
 @export var JUMP_VELOCITY: int = -200
@@ -20,6 +21,7 @@ class_name playervar
 var Border = Vector2(1280, 2304)
 var SlideCooldown: bool = true
 var moving: bool = false
+var damaged: bool = false
 ### Animations, Functions ###
 #Idle
 func idle_animation():
@@ -112,6 +114,7 @@ func attacking_animation():
 	
 #Process
 func _process(delta: float) -> void:
+	healthbar.value = Health
 	if Input.is_action_pressed("ui_left"):
 		moving = true
 	elif Input.is_action_pressed("ui_right"):

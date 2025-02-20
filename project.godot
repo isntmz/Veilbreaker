@@ -27,6 +27,7 @@ movie_writer/fps=240
 [global_group]
 
 Player=""
+"Tutorial Portal"=""
 
 [input]
 

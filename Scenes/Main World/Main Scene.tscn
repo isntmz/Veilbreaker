@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gvt6g4sogkx5" path="res://Scenes/User Interface/Abandoned City Button.tscn" id="10_b7pex"]
 [ext_resource type="PackedScene" uid="uid://euf5pmr06x50" path="res://Scenes/User Interface/Desert Button.tscn" id="11_wt2l3"]
 [ext_resource type="PackedScene" uid="uid://y7jnwlhma3r5" path="res://Scenes/User Interface/Tutorial Button.tscn" id="12_qeu3e"]
-[ext_resource type="PackedScene" uid="uid://bvjx77ovn3bol" path="res://Tutorial Portal.tscn" id="13_p3yd1"]
+[ext_resource type="PackedScene" uid="uid://bvjx77ovn3bol" path="res://Scenes/Tutorial/Tutorial Portal.tscn" id="13_p3yd1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s0yxf"]
 distance = -21.0
