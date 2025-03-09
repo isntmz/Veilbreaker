@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs67dfn5nyxbd"]
+
+[ext_resource type="FontFile" uid="uid://bnxca56smw5ti" path="res://User Interface/Fonts/Game Font/Jersey10-Regular.ttf" id="1_16a6o"]
+[ext_resource type="Script" path="res://coin_handle.gd" id="1_dj6t4"]
+
+[sub_resource type="Theme" id="Theme_i8kgl"]
+default_font = ExtResource("1_16a6o")
+default_font_size = 60
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 91.0
+offset_bottom = 23.0
+theme = SubResource("Theme_i8kgl")
+script = ExtResource("1_dj6t4")
