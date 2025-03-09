@@ -1,40 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://yb14jeekov30"]
+[gd_scene load_steps=49 format=3 uid="uid://yb14jeekov30"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_roomb"]
 [ext_resource type="Texture2D" uid="uid://1x0xaysieg5w" path="res://Player/Sprites/AnimationSheet_Character.png" id="2_bgtm8"]
-[ext_resource type="PackedScene" uid="uid://7qdy0cmbaxjm" path="res://Scenes/Player/Health Bar.tscn" id="3_uhfnv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bx76u"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(0, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnpof"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(32, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xu3gi"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(64, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6oej"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(96, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmydw"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(128, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x1txr"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(160, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5o88"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(192, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvpr8"]
-atlas = ExtResource("2_bgtm8")
-region = Rect2(224, 256, 32, 32)
+[ext_resource type="PackedScene" uid="uid://7qdy0cmbaxjm" path="res://Scenes/Player/Health Bar.tscn" id="3_4c7u0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2hbj"]
 atlas = ExtResource("2_bgtm8")
@@ -202,35 +170,6 @@ region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ogtey"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bx76u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rnpof")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xu3gi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o6oej")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmydw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x1txr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d5o88")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gvpr8")
-}],
-"loop": false,
-"name": &"Attacking",
-"speed": 8.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x2hbj")
@@ -405,7 +344,7 @@ process_mode = 3
 process_priority = 1
 process_physics_priority = 1
 sprite_frames = SubResource("SpriteFrames_ogtey")
-animation = &"Attacking"
+animation = &"Disappearing"
 
 [node name="SlideTimer" type="Timer" parent="Player" groups=["Player"]]
 wait_time = 3.0
@@ -429,12 +368,17 @@ process_priority = 1
 process_physics_priority = 1
 zoom = Vector2(3, 3)
 process_callback = 0
-limit_left = 0
-limit_top = 0
 limit_right = 2304
 limit_bottom = 1296
 limit_smoothed = true
 position_smoothing_speed = 4.0
+
+[node name="HealthBar" parent="PointOfView" instance=ExtResource("3_4c7u0")]
+offset_left = -14.0
+offset_top = -21.0
+offset_right = 13.0
+offset_bottom = -15.0
+size_flags_horizontal = 0
 
 [node name="AuraParticles" type="CPUParticles2D" parent="." groups=["Player"]]
 emission_shape = 1
@@ -459,12 +403,5 @@ offset_bottom = 5.0
 bbcode_enabled = true
 text = "[img]res://Player/Attributes/Can't Use Ability.png[/img]"
 
-[node name="HealthBar" parent="." instance=ExtResource("3_uhfnv")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -320.0
-offset_top = -324.0
-offset_right = -244.0
-offset_bottom = -308.0
-
 [connection signal="timeout" from="Player/SlideTimer" to="." method="_on_slide_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

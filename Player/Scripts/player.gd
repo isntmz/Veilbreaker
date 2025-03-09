@@ -11,11 +11,10 @@ class_name playervar
 @onready var cooldowntimer: Timer = $Player/CooldownTimer
 @onready var invisibilitytimer: Timer = $Player/InvisibilityTimer
 @onready var iframetimer: Timer = $Player/InvincibilityFrameTimer
-@onready var healthbar: ProgressBar = $HealthBar
+@onready var healthbar = $PointOfView/HealthBar
 #Attributes
 @export var Speed: int = 50
 @export var JUMP_VELOCITY: int = -200
-@export var Damage: int = 20
 @export var Health: int = 100
 #Stuff
 var Border = Vector2(1280, 2304)
@@ -35,7 +34,6 @@ func walking_animation():
 		player.play("Walking")
 		#Normal Speed
 		Speed = 75
-		
 		if Input.is_action_pressed("ui_left"):
 			player.flip_h = true
 		elif Input.is_action_pressed("ui_right"):
@@ -101,27 +99,17 @@ func dying_animation():
 	Speed = 0
 	player.play("Dying")
 	await get_tree().create_timer(0.5).timeout
-	get_tree().reload_scene()
+	get_tree().reload_current_scene()
 
-#Attacking
-func attacking_animation():
-	if moving == false:
-		player.play("Attacking")
-		#instantiate seperate (invisible) weapon scene, hitbox for attacking enemies
-	elif moving == true:
-		print("Player can't attack, is moving")
-	
-	
 #Process
 func _process(delta: float) -> void:
-	healthbar.value = Health
+	#HealthBar.value = Health
 	if Input.is_action_pressed("ui_left"):
 		moving = true
 	elif Input.is_action_pressed("ui_right"):
 		moving = true
 	else:
 		moving = false
-	#global_position = clamp(global_position, Vector2.ZERO, Border)
 	if Health <= 0:
 		dying_animation()
 	else:
@@ -136,8 +124,6 @@ func _process(delta: float) -> void:
 		walking_animation()
 	elif Input.is_action_pressed("ui_right"):
 		walking_animation()
-	elif Input.is_action_pressed("Attack"):
-		attacking_animation()
 	else:
 		idle_animation()
 		
@@ -156,5 +142,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 #Timers/Cooldowns
-func _on_slide_timer_timeout() -> void:
+func _on_slide_timer_timeout() -> void:	
 	SlideCooldown = true
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Tutorial Portal"):
+		print("wamp")
+		player.play("Disappearing")
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
+		get_tree().change_scene_to_file("res://Scenes/Tutorial/Tutorial.tscn")
+	if area.is_in_group("Spikes"):
+		Health -= 10
+		healthbar.value -= 10
+		print("Player is taking damage! -10 (Spikes)")

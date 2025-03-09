@@ -450,3 +450,8 @@ frame_progress = 0.200787
 [node name="AttackDelayTimer" type="Timer" parent="SkeletonEnemy"]
 
 [node name="InvincibilityFrameTimer" type="Timer" parent="SkeletonEnemy"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+simplify_path = true
+debug_enabled = true

@@ -1,20 +1,17 @@
 extends CharacterBody2D
-#@onready var player: AnimatedSprite2D = $Player
-#@onready var pov: Camera2D = $PointOfView
-#@onready var aura: CPUParticles2D = $AuraParticles
-#@onready var cooldown: RichTextLabel = $CooldownText
-#@onready var damagetick: RichTextLabel = $DamageTickText
-#@onready var slidetimer: Timer = $SlideTimer
-#@onready var delaytimer: Timer = $DelayTimer
-#@onready var cooldowntimer: Timer = $CooldownTimer
-#@onready var invisibilitytimer: Timer = $InvisibilityTimer
-#@onready var iframetimer: Timer = $InvincibilityFrameTimer
+###
+#Link Variables
+@onready var skeleton: AnimatedSprite2D = $SkeletonEnemy
+#Attributes
+var victim = playervar.new()
+@export var target = victim
 
-var SPEED = 30.0
-var JUMP_VELOCITY = -200.0
+func _ready():
+	pass
 
-func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+func idle():
+	skeleton.play("Idle")
 
-	move_and_slide()
+func _process(delta):
+	if target.global_position:
+		idle()
